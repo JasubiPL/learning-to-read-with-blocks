@@ -8,13 +8,16 @@ export default function SplashScreen(){
   const router = useRouter();
   const { width } = useWindowDimensions();
 
+  /**
+   * Navigate to Home after 2 seconds
+   * @returns void
+   */
   useEffect(() => {
     const timeout = setTimeout(() => {
       router.replace('/home');
     }, 2000);
 
     return () => clearTimeout(timeout);
-  
   }, []);
 
   return (
