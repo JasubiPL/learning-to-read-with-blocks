@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:learning_to_read_with_blocks/features/splash/splash_page.dart';
+import 'routes/app_routes.dart';
 
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SplashPage()
+      initialRoute: AppRoutes.splash,
+      routes: AppRoutes.routes,
     );
   }
 }
