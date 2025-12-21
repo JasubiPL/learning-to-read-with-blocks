@@ -43,9 +43,9 @@ class _SplashPageState extends State<SplashPage> {
       body: Container(
         width: double.infinity,
         height: double.infinity,
-        color: Colors.black,
+        color: Colors.green[700],
         child: Center(
-          child: Image(image: AssetImage('lib/core/images/pineyrosoft-logo.png'))
+          child: Image(image: AssetImage('lib/assets/images/pineyrosoft-logo.png'))
         ),
       ),
     );
