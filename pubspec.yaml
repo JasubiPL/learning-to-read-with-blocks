@@ -1,7 +1,7 @@
 name: learning_to_read_with_blocks
-description: "A new Flutter project."
+description: "App to learn to read uses blocks to form words"
 publish_to: 'none'
-version: 0.1.0
+version: 1.0.0
 
 environment:
   sdk: ^3.10.4
