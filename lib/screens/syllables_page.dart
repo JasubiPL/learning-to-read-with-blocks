@@ -22,13 +22,50 @@ class _SyllablesPageState extends State<SyllablesPage> {
   }
 
   void _initTts() async {
-    await flutterTts.setLanguage("es-ES");
+    await flutterTts.setLanguage("es-Mx");
     await flutterTts.setPitch(1.0);
     await flutterTts.setSpeechRate(0.5);
   }
 
   Future<void> _speak(String text) async {
     await flutterTts.speak(text);
+  }
+
+  Future<void> _speakSyllable(String syllable) async {
+    // Normalización puntual para evitar pronunciación inglesa en sílabas cortas.
+    final normalized = _normalizeSyllableForSpanishTts(syllable);
+    await flutterTts.speak(normalized);
+  }
+
+  String _normalizeSyllableForSpanishTts(String syllable) {
+    switch (syllable.toLowerCase()) {
+      case 'be':
+        return syllable[0] == 'B' ? 'Bé' : 'bé';
+      case 'ge':
+        return syllable[0] == 'G' ? 'Gué' : 'gué';
+      case 'gi':
+        return syllable[0] == 'G' ? 'Gui' : 'gui';
+      case 'ji':
+        return syllable[0] == 'J' ? 'Jí' : 'jí';
+      case 'je':
+        return syllable[0] == 'J' ? 'Jé' : 'jé';
+      case 'ju':
+        return syllable[0] == 'J' ? 'Jú' : 'jú';
+      case 'jo':
+        return syllable[0] == 'J' ? 'Jó' : 'jó';
+      case 'hi':
+        return syllable[0] == 'H' ? 'Hí' : 'hí';
+      case 'ho':
+        return syllable[0] == 'H' ? 'Hó' : 'hó';
+      case 'hu':
+        return syllable[0] == 'H' ? 'u' : 'u';
+      case 'to':
+        return syllable[0] == 'T' ? 'Tó' : 'tó';
+      case 'we':
+        return syllable[0] == 'W' ? 'Wé' : 'wé';
+      default:
+        return syllable;
+    }
   }
 
   @override
@@ -191,10 +228,12 @@ class _SyllablesPageState extends State<SyllablesPage> {
   }
 
   Widget _buildSyllableButton(String syllable) {
+    String? specialSyllable;
+    if (syllable[0] == 'Q') specialSyllable = 'K' + syllable[1];
     return MinecraftButton.diamond(
       width: 70,
       height: 70,
-      onPressed: () => _speak(syllable),
+      onPressed: () => _speakSyllable(specialSyllable ?? syllable),
       child: Text(
         syllable,
         style: const TextStyle(

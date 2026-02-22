@@ -46,7 +46,7 @@ class _ConstantsMenuPageState extends State<ConstantsMenuPage> {
   }
 
   void _initTts() async {
-    await flutterTts.setLanguage("es-ES");
+    await flutterTts.setLanguage("es-Mx");
     await flutterTts.setPitch(1.0);
     await flutterTts.setSpeechRate(0.5);
   }
