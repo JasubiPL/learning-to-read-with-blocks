@@ -1,7 +1,7 @@
 name: learning_to_read_with_blocks
 description: "App to learn to read uses blocks to form words"
 publish_to: 'none'
-version: 1.0.0
+version: 1.0.1
 
 environment:
   sdk: ^3.10.4
