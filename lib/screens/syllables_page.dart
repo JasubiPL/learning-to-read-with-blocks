@@ -72,7 +72,7 @@ class _SyllablesPageState extends State<SyllablesPage> {
                   child: const Icon(
                     Icons.arrow_back_ios_new,
                     color: Colors.black,
-                    size: 42,
+                    size: 36,
                   ),
                 ),
               ),
@@ -154,7 +154,7 @@ class _SyllablesPageState extends State<SyllablesPage> {
                                 _speak('Selecciona la sílaba para escucharla'),
                             child: Image.asset(
                               'lib/assets/images/bocina.png',
-                              height: 70,
+                              height: 50,
                             ),
                           ),
                           const SizedBox(width: 0),
@@ -162,13 +162,13 @@ class _SyllablesPageState extends State<SyllablesPage> {
                             child: Text(
                               'Selecciona la sílaba para escucharla',
                               style: GoogleFonts.pixelifySans(
-                                fontSize: 21,
+                                fontSize: 16,
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
                           ),
-                          const SizedBox(width: 80), // Space for the sign image
+                          const SizedBox(width: 50), // Space for the sign image
                         ],
                       ),
                     ),
@@ -192,13 +192,13 @@ class _SyllablesPageState extends State<SyllablesPage> {
 
   Widget _buildSyllableButton(String syllable) {
     return MinecraftButton.diamond(
-      width: 90,
-      height: 90,
+      width: 70,
+      height: 70,
       onPressed: () => _speak(syllable),
       child: Text(
         syllable,
         style: const TextStyle(
-          fontSize: 48,
+          fontSize: 36,
           color: Colors.white,
           fontWeight: FontWeight.normal,
         ),

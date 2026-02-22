@@ -127,7 +127,7 @@ class _ConstantsMenuPageState extends State<ConstantsMenuPage> {
                                 ),
                                 child: Image.asset(
                                   'lib/assets/images/bocina.png',
-                                  height: 70,
+                                  height: 50,
                                 ),
                               ),
                               const SizedBox(width: 8),
@@ -135,7 +135,7 @@ class _ConstantsMenuPageState extends State<ConstantsMenuPage> {
                                 child: Text(
                                   'Selecciona la consonante\nque quieres aprender',
                                   style: GoogleFonts.pixelifySans(
-                                    fontSize: 21,
+                                    fontSize: 16,
                                     color: Colors.black,
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -172,7 +172,7 @@ class _ConstantsMenuPageState extends State<ConstantsMenuPage> {
                                 child: Text(
                                   letterPair,
                                   style: const TextStyle(
-                                    fontSize: 36,
+                                    fontSize: 24,
                                     color: Colors.white,
                                     fontWeight: FontWeight.normal,
                                   ),
@@ -189,12 +189,11 @@ class _ConstantsMenuPageState extends State<ConstantsMenuPage> {
 
                     // Character icon (Piñeyrin) on the bottom right
                     Positioned(
-                      right: 0,
-                      bottom: -200,
-                      left: 220,
+                      right: -20,
+                      bottom: -100,
                       child: Image.asset(
                         'lib/assets/images/Piñeyrin-1.png',
-                        height: 350,
+                        height: 220,
                       ),
                     ),
                   ],
