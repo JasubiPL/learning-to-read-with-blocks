@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:learning_to_read_with_blocks/components/default_button.dart';
 import 'package:learning_to_read_with_blocks/routes/app_routes.dart';
 
-class HomePage extends StatelessWidget{
+class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
@@ -14,11 +14,11 @@ class HomePage extends StatelessWidget{
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage('lib/assets/images/background-home.png'),
-            fit: BoxFit.cover
-          )
+            fit: BoxFit.cover,
+          ),
         ),
         child: Padding(
-          padding: EdgeInsets.all(32),
+          padding: EdgeInsets.symmetric(horizontal: 32, vertical: 64),
           child: Column(
             children: [
               Spacer(),
@@ -28,12 +28,13 @@ class HomePage extends StatelessWidget{
                 text: 'Jugar',
                 height: 70,
                 isFull: true,
-                onPressed: () => Navigator.pushNamed(context, AppRoutes.constantsMenu)
-              )
+                onPressed: () =>
+                    Navigator.pushNamed(context, AppRoutes.constantsMenu),
+              ),
             ],
-          )
+          ),
         ),
-      )
+      ),
     );
   }
 }
