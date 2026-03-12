@@ -122,8 +122,8 @@ class _LinksMenuPageState extends State<LinksMenuPage> {
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: vowels.map((vowel) {
                               return SizedBox(
-                                width: 56,
-                                height: 56,
+                                width: 48,
+                                height: 48,
                                 child: MinecraftButton.stone(
                                   onPressed: () {
                                     Navigator.push(
