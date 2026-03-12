@@ -29,7 +29,7 @@ class HomePage extends StatelessWidget {
                 height: 70,
                 isFull: true,
                 onPressed: () =>
-                    Navigator.pushNamed(context, AppRoutes.constantsMenu),
+                    Navigator.pushNamed(context, AppRoutes.consonantTypeMenu),
               ),
             ],
           ),
