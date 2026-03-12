@@ -25,6 +25,7 @@ class _SyllablesPageState extends State<SyllablesPage> {
     await flutterTts.setLanguage("es-Mx");
     await flutterTts.setPitch(1.0);
     await flutterTts.setSpeechRate(0.5);
+    await flutterTts.awaitSpeakCompletion(true);
   }
 
   Future<void> _speak(String text) async {
@@ -32,40 +33,37 @@ class _SyllablesPageState extends State<SyllablesPage> {
   }
 
   Future<void> _speakSyllable(String syllable) async {
-    // Normalización puntual para evitar pronunciación inglesa en sílabas cortas.
     final normalized = _normalizeSyllableForSpanishTts(syllable);
     await flutterTts.speak(normalized);
   }
 
+  static const _accentMap = {
+    'a': 'á', 'e': 'é', 'i': 'í', 'o': 'ó', 'u': 'ú',
+    'A': 'Á', 'E': 'É', 'I': 'Í', 'O': 'Ó', 'U': 'Ú',
+  };
+
+  // Casos donde el TTS pronuncia mal y necesitan reemplazo completo
+  static const _specialCases = {
+    'ge': 'gué', 'gi': 'gui',
+    'hu': 'u',
+  };
+
   String _normalizeSyllableForSpanishTts(String syllable) {
-    switch (syllable.toLowerCase()) {
-      case 'be':
-        return syllable[0] == 'B' ? 'Bé' : 'bé';
-      case 'ge':
-        return syllable[0] == 'G' ? 'Gué' : 'gué';
-      case 'gi':
-        return syllable[0] == 'G' ? 'Gui' : 'gui';
-      case 'ji':
-        return syllable[0] == 'J' ? 'Jí' : 'jí';
-      case 'je':
-        return syllable[0] == 'J' ? 'Jé' : 'jé';
-      case 'ju':
-        return syllable[0] == 'J' ? 'Jú' : 'jú';
-      case 'jo':
-        return syllable[0] == 'J' ? 'Jó' : 'jó';
-      case 'hi':
-        return syllable[0] == 'H' ? 'Hí' : 'hí';
-      case 'ho':
-        return syllable[0] == 'H' ? 'Hó' : 'hó';
-      case 'hu':
-        return syllable[0] == 'H' ? 'u' : 'u';
-      case 'to':
-        return syllable[0] == 'T' ? 'Tó' : 'tó';
-      case 'we':
-        return syllable[0] == 'W' ? 'Wé' : 'wé';
-      default:
-        return syllable;
+    final lower = syllable.toLowerCase();
+
+    // Casos especiales donde acentuar no es suficiente
+    if (_specialCases.containsKey(lower)) {
+      return _specialCases[lower]!;
     }
+
+    // Para todo lo demás, acentuar la última vocal
+    for (int i = syllable.length - 1; i >= 0; i--) {
+      final accent = _accentMap[syllable[i]];
+      if (accent != null) {
+        return syllable.substring(0, i) + accent + syllable.substring(i + 1);
+      }
+    }
+    return syllable;
   }
 
   @override
@@ -77,7 +75,10 @@ class _SyllablesPageState extends State<SyllablesPage> {
   @override
   Widget build(BuildContext context) {
     final vowels = ['a', 'e', 'i', 'o', 'u'];
-    final upperConsonant = widget.consonant.toUpperCase();
+    final isCompound = widget.consonant.length > 1;
+    final upperConsonant = isCompound
+        ? widget.consonant[0].toUpperCase() + widget.consonant.substring(1).toLowerCase()
+        : widget.consonant.toUpperCase();
     final lowerConsonant = widget.consonant.toLowerCase();
 
     final List<String> upperSyllables = vowels
