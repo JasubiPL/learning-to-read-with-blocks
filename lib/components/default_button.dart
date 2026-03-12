@@ -25,7 +25,11 @@ class _DefaultButtonState extends State<DefaultButton> {
     },
     'diamond': {
       'primary': Color.fromARGB(255, 125, 203, 190),
-      'secondary': Color.fromARGB(255, 80, 139, 127)
+      'secondary': Color.fromARGB(255, 80, 139, 127),
+    },
+    'gold': {
+      'primary': Color.fromARGB(255, 255, 215, 0),
+      'secondary': Color.fromARGB(255, 170, 130, 0),
     }
   };
 
@@ -75,7 +79,7 @@ class _DefaultButtonState extends State<DefaultButton> {
                     textAlign: TextAlign.center,
                     style: widget.isFull ? GoogleFonts.pressStart2p(
                       color: secondaryColor,
-                      fontSize: 24,
+                      fontSize: widget.textSize < 40 ? widget.textSize : 24,
                     )
                     : GoogleFonts.nunito(
                       color: Colors.white,
