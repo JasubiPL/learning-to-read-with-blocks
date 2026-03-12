@@ -33,7 +33,7 @@ class ConsonantTypeMenu extends StatelessWidget {
                 ),
                 SizedBox(height: 24),
                 DefaultButton(
-                  text: 'Bla, Bre, Cri...',
+                  text: 'Bla, Bre ',
                   height: 90,
                   textSize: 18,
                   isFull: true,
