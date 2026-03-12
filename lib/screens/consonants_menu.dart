@@ -70,7 +70,7 @@ class _ConstantsMenuPageState extends State<ConstantsMenuPage> {
         decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage(
-              'lib/assets/images/background-home.png',
+              'lib/assets/images/background-ice.png',
             ), // Landscape background as per Image 3
             fit: BoxFit.cover,
           ),
