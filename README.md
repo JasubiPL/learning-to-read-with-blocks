@@ -8,7 +8,17 @@ La app guía a los niños paso a paso por la lectura de **sílabas** en español
 
 Todo esto envuelto en una interfaz estilo Minecraft: botones con bordes biselados de diamante, piedra y madera, un inventario de consonantes, fondos pixelados y un personaje guía llamado **Piñeyrin**.
 
-## 📱 Pantallas
+
+## 📱 Capturas de pantalla
+
+A continuación se muestran algunas capturas del desarrollo de la app:
+
+<p align="center">
+    <img src="readme-media/Screenshot_20260312_171312.png" alt="Splash" width="300" />
+    <img src="readme-media/Screenshot_20260312_171430.png" alt="Home" width="300" />
+    <img src="readme-media/Screenshot_20260312_171444.png" alt="Menú de Consonantes" width="300" />
+    <img src="readme-media/Screenshot_20260312_171457.png" alt="Sílabas" width="300" />
+</p>
 
 | Pantalla | Descripción |
 |---|---|
@@ -24,25 +34,6 @@ Todo esto envuelto en una interfaz estilo Minecraft: botones con bordes biselado
 - **google_fonts** — Tipografía Pixelify Sans y Press Start 2P (estilo pixel art)
 - **flutter_svg** — Soporte para assets SVG
 
-## 🗂️ Estructura del proyecto
-
-```
-lib/
-├── main.dart                  # Punto de entrada
-├── app.dart                   # Configuración de MaterialApp y rutas
-├── routes/
-│   └── app_routes.dart        # Definición de rutas con nombre
-├── components/
-│   ├── default_button.dart    # Botón principal estilo Minecraft (madera/diamante)
-│   └── minecraft_button.dart  # Botón con variantes: diamond, stone, wood
-├── screens/
-│   ├── splash_page.dart       # Splash screen con logo
-│   ├── home_page.dart         # Pantalla de inicio
-│   ├── consonants_menu.dart   # Menú de selección de consonantes
-│   └── syllables_page.dart    # Vista de sílabas con TTS
-└── assets/
-    └── images/                # Fondos, logos, iconos y personaje
-```
 
 ## 🚀 Cómo ejecutar
 
@@ -61,4 +52,4 @@ flutter run
 
 Este proyecto es **open source** bajo la licencia [MIT](LICENSE).
 
-Desarrollado por **[JasubiP](https://jasubip.vercel.app)**.
+Desarrollado por **[JasubiP](https://jasubip.com)**.
